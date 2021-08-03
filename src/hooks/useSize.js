@@ -5,7 +5,7 @@ const useSize = () => {
                                 width: window.innerWidth,
                                 height: window.innerHeight
                             });
-
+                        
     useEffect(() => {
         const eventListnr = () => {
             setSize({

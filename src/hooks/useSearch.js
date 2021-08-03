@@ -8,12 +8,12 @@ const useSearch = (searchTerm) => {
         const searchResult = await response.json();
         setRepos(searchResult.items);
     };
-
+    
     useEffect(() => {
         if(searchTerm){
             searchGithub();
         }
-    }, [searchTerm]);
+    }, [searchTerm]);    
 
     return repos;
 };
