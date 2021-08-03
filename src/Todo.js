@@ -1,32 +1,12 @@
-import { useRef, useReducer } from 'react';
+import { useRef, useContext } from 'react';
+import AppContext from './context';
 
-
-
-const initialState = {
-    todos: ['Run']
-};
-
-const todoReducer = (state, action) => {
-    if(action.type === 'ADD_TODO'){
-        return {
-            ...state,
-            todos: [...state.todos, action.data]
-        };
-    }
-    if(action.type === 'REMOVE_TODO'){
-        return {
-            ...state,
-            todos: [...state.todos.slice(0, action.data), ...state.todos.slice(action.data+1, state.todos.length)]
-        };
-    }
-    return state;
-}
 
 
 
 const Todo = () => {
-    const [state, dispatch] = useReducer(todoReducer, initialState);
-
+    const { state, dispatch } = useContext(AppContext);
+    
     const addTodoInputRef = useRef();
 
     const onAddBtnClick = () => {
